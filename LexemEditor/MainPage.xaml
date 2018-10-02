@@ -1,0 +1,37 @@
+﻿<Page
+    x:Class="LexemEditor.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:LexemEditor"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Vertical" Grid.Row="0">
+            <AppBar x:Name="MenuAppBar" IsOpen="True">
+                <StackPanel Orientation="Horizontal">
+                    <AppBarButton Icon="Add" Label="Добавить лексемы" Name="AddLexemesFromFolder" Click="OpenFolderAndGetLexemes_Click" HorizontalAlignment="Left"/>
+                    <AppBarButton Icon="Save" Label="Сохранить лексемы" Name="SaveLexemes" Click="SaveLexemes_Click" HorizontalAlignment="Left"/>
+                </StackPanel>
+            </AppBar>
+        </StackPanel>
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" VerticalScrollMode="Enabled">
+            <ListView x:Name="ListViewLexemesViewer" HorizontalAlignment="Stretch" SelectionMode="None">
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                    </Style>
+                </ListView.ItemContainerStyle>
+            </ListView>
+        </ScrollViewer>
+    </Grid>
+        <ProgressRing x:Name="ProgressRingLoadingLexemes" Height="200" Width="200"/>
+    </Grid>
+</Page>
